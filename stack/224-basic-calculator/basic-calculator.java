@@ -8,7 +8,7 @@ class Solution {
         for(int i=0;i<n;i++){
             char ch=s.charAt(i);
             if(Character.isDigit(ch)){
-                number=number*10+(ch-'0');
+                number=number*10+(ch-'0');  //convert kro character ko digit me and then wo number ban jayga
             }
             else if(ch=='+'){
                  result+=number*sign;
