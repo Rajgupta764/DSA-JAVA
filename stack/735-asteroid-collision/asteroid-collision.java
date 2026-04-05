@@ -1,34 +1,31 @@
-import java.util.*;
-
-public class Solution {
+class Solution {
     public int[] asteroidCollision(int[] asteroids) {
-        Stack<Integer> stack = new Stack<>();
-
-        for (int asteroid : asteroids) {
-            // Handle collisions only if asteroid is moving left
-            while (!stack.isEmpty() && asteroid < 0 && stack.peek() > 0) {
-                int top = stack.peek();
-                if (Math.abs(asteroid) > top) {
-                    stack.pop(); // right asteroid destroyed, keep checking
-                } else if (Math.abs(asteroid) == top) {
-                    stack.pop(); // both destroyed
-                    asteroid = 0; // mark current asteroid destroyed
-                    break;
-                } else {
-                    asteroid = 0; // left asteroid destroyed
-                    break;
+        Stack<Integer> st=new Stack<>();
+        int n=asteroids.length;
+        for(int i=0;i<n;i++){
+            int current=asteroids[i];
+            while(!st.isEmpty() && current<0 && st.peek()>0){
+                int sum=current+st.peek();
+                if(sum<0){
+                    st.pop();
+                }
+                else if(sum>0){
+                    current=0;
+                }
+                else {
+                    st.pop();
+                    current=0;
                 }
             }
-            if (asteroid != 0) {
-                stack.push(asteroid);
+            if(current!=0){
+                st.push(current);
             }
         }
-
-        // Convert stack to array
-        int[] result = new int[stack.size()];
-        for (int i = stack.size() - 1; i >= 0; i--) {
-            result[i] = stack.pop();
-        }
+        int result[]=new int[st.size()];
+         int j=0;
+         for(int s:st){
+            result[j++]=s;
+         }
         return result;
     }
 }
