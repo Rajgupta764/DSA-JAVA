@@ -18,6 +18,7 @@ class Solution {
         if(root==null){
             return 0;
         }
+        //ye hmara recursion call hai jo niche ke sare nodes ko dega
         int leftheight=maxDepth(root.left);
         int rightheight=maxDepth(root.right);
         return Math.max(leftheight,rightheight)+1;
