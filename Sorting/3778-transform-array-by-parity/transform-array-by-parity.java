@@ -8,12 +8,12 @@ class Solution {
                 ans[i]=0;
                 i++;
             }
-            else {
-                ans[i]=1;
-                i++;
-            }
         }
-        Arrays.sort(ans);
+
+        while(i<n){
+            ans[i]=1;
+            i++;
+        }
         return ans;
     }
 }
