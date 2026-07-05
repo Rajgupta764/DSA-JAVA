@@ -19,11 +19,10 @@ class Solution {
         dfs(root,Integer.MIN_VALUE);
         return count;
     }
-    public void dfs(TreeNode root,int max){
+    public  void dfs(TreeNode root,int max){
         if(root==null){
             return;
         }
-
         if(root.val>=max){
             count++;
         }
