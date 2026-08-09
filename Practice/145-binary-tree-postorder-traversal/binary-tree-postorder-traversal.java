@@ -8,9 +8,8 @@ class Solution {
         if(root==null){
             return;
         }
-        dfs(root.left,ans); //left subtree
-        dfs(root.right,ans); //right subtree
-        ans.add(root.val);     //root value
-
+        dfs(root.left,ans);
+        dfs(root.right,ans);
+        ans.add(root.val);
     }
 }
